@@ -1,0 +1,14 @@
+/* mightgumball.css */
+
+body {
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+div.commitMessage {
+	font-family: Helvetica, sans-serif;
+	color: #434343;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+}
