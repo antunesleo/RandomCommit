@@ -23,12 +23,10 @@ function getRepos(response) {
 
 	var data = response.data; //Getting data of the response provided by the github api containg all repositories
 	for (i = 0; i < data.length; i++) {
-		alert("estou dentro do for");
 		repos.push(data[i].name); //add the repo to the array
 
 		//constructing the url, passing user name and repository name 
 		var urli = "https://api.github.com/repos/" + userName.value + "/" + data[i].name + "/commits?callback=getCommits"; 
-		alert(urli);
 		var scriptElementi = document.createElement("script"); //creates a new dom element Script
 		scriptElementi.setAttribute("src", urli); //passing the url for the element
 		scriptElementi.setAttribute("id","jsonpCommits" + data[i].name); //setting an id for the script element jsonpCommit + repositoryName
