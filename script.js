@@ -45,6 +45,7 @@ function triggerRest() {
 	scriptElement.setAttribute("src", url); //passing de url for the script element
 	scriptElement.setAttribute("id","jsonpRepo"); //set and id for the element
 	head.appendChild(scriptElement); //adding the script element to the head element
+	document.getElementById("buttonRandom").style.display = "inline";
 }
 
 /*
