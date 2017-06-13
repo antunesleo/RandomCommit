@@ -12,6 +12,7 @@ window.onload = function () {
 	userName = document.getElementById("inputUser");
 	buttonValidate.addEventListener("click", triggerRest);
 	buttonRandom.addEventListener("click", randomCommit);
+	previewHandler();
 }
 
 /*
@@ -74,7 +75,46 @@ function randomCommit() {
 	var div = document.createElement("div");
 	div.setAttribute("class", "commitMessage");
 	var commitIndex = Math.floor((Math.random() * commits.length)+1);
-	div.innerHTML = 'git commit -m "' + commits[commitIndex] + '"';
+	div.innerHTML = '$  git commit -m "' + commits[commitIndex] + '"';
 	commitDiv.appendChild(div);
+
+	var context = document.getElementById("canvasCommit").getContext("2d");
+}
+
+/*
+ * Functions to draw the random squares below the navbar
+ *
+ */
+function previewHandler() {
+	var canvas = document.getElementById("canvasCommit");
+	var context = canvas.getContext("2d");
+	context.canvas.width  = window.innerWidth;
+	fillBackgroundColor(canvas, context);
+
+	for (var squares = 0; squares < 800; squares++) {
+		drawSquares(canvas, context);
+	}
+}
+
+function drawSquares(canvas, context) {
+
+	var w = Math.floor(Math.random() * 15);
+
+	var x = Math.floor(Math.random() * canvas.width);
+
+	var y = Math.floor(Math.random() * canvas.height);
+
+	context.fillStyle = randomColorHexa();
+	context.fillRect(x, y, w, w);
+}
+
+function fillBackgroundColor(canvas, context) {
+	context.fillStyle = "white";
+	context.fillRect(0, 0, 600, 200);
+}
+
+function randomColorHexa() {
+	var colors = ["#D6E685","#8CC665","#44A340","#1E6823"];
+	return colors[Math.floor(Math.random() * 4)];
 }
 
