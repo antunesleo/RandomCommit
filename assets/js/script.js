@@ -26,8 +26,8 @@ function getRepos(response) {
 	for (i = 0; i < data.length; i++) {
 		repos.push(data[i].name); //add the repo to the array
 
-		//constructing the url, passing user name and repository name 
-		var urli = "https://api.github.com/repos/" + userName.value + "/" + data[i].name + "/commits?callback=getCommits"; 
+		//constructing the url, passing user name and repository name
+		var urli = "https://api.github.com/repos/" + userName.value + "/" + data[i].name + "/commits?callback=getCommits";
 		var scriptElementi = document.createElement("script"); //creates a new dom element Script
 		scriptElementi.setAttribute("src", urli); //passing the url for the element
 		scriptElementi.setAttribute("id","jsonpCommits" + data[i].name); //setting an id for the script element jsonpCommit + repositoryName
@@ -38,7 +38,7 @@ function getRepos(response) {
 
 /*
  * This is the trigger function for all rest request stuff
- * 
+ *
  */
 function triggerRest() {
 	var url = "https://api.github.com/users/" + userName.value + "/repos?callback=getRepos"; //url to get all repos passing user name
@@ -58,13 +58,13 @@ function getCommits(response) {
 
 	var data = response.data;
 
-	for (i = 0; i < data.length; i++) {
+	for (i = 0; i < data.length -1; i++) {
 		commits.push(data[i].commit.message);
 	}
 }
 
 /*
- * This function get a random commit message stored on the array and 
+ * This function get a random commit message stored on the array and
  * add in a div for the user
  */
 function randomCommit() {
@@ -117,4 +117,3 @@ function randomColorHexa() {
 	var colors = ["#D6E685","#8CC665","#44A340","#1E6823"];
 	return colors[Math.floor(Math.random() * 4)];
 }
-
