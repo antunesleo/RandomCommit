@@ -8,7 +8,3 @@ It's 99% pure javascript application. Jquery was just used for bootstrap stuff. 
 consumes the github API (JSONP) and get a random commit from any of the user repositories.
 
 ![](/assets/images/index.png)
-
-## License
-
-It's completely free
